@@ -1,0 +1,276 @@
+:root {
+    /* Light theme variables */
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-color: #1a237e;
+    --border-color: #ddd;
+    --card-shadow: 0 0 10px rgba(0,0,0,0.1);
+    --nav-bg: #1a237e;
+    --nav-text: #ffffff;
+    --hover-bg: rgba(255, 255, 255, 0.1);
+    --table-header-bg: #f8f9fa;
+    --table-hover: #f5f5f5;
+}
+
+[data-theme="dark"] {
+    /* Dark theme variables */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-color: #4a5ae3;
+    --border-color: #404040;
+    --card-shadow: 0 0 10px rgba(0,0,0,0.3);
+    --nav-bg: #2d2d2d;
+    --nav-text: #ffffff;
+    --hover-bg: rgba(255, 255, 255, 0.05);
+    --table-header-bg: #333333;
+    --table-hover: #383838;
+}
+
+/* Theme transition */
+* {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Base styles using CSS variables */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.nav-container {
+    background-color: var(--nav-bg);
+}
+
+.nav-links a {
+    color: var(--nav-text);
+}
+
+.nav-links a:hover {
+    background-color: var(--hover-bg);
+}
+
+.nav-links .login-btn {
+    background-color: var(--bg-secondary);
+    color: var(--accent-color);
+}
+
+.stock-card,
+.chart-container,
+.watchlist,
+.stock-search-container,
+.tab-content {
+    background-color: var(--bg-secondary);
+    box-shadow: var(--card-shadow);
+}
+
+.stock-item {
+    border-bottom-color: var(--border-color);
+}
+
+.stock-symbol {
+    color: var(--text-primary);
+}
+
+.watchlist-table th {
+    background-color: var(--table-header-bg);
+    color: var(--accent-color);
+}
+
+.watchlist-table td {
+    border-bottom-color: var(--border-color);
+}
+
+.watchlist-table tr:hover {
+    background-color: var(--table-hover);
+}
+
+input[type="text"] {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.tab {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.tab.active {
+    background-color: var(--accent-color);
+    color: var(--nav-text);
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    cursor: pointer;
+    padding: 8px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle:hover {
+    background-color: var(--hover-bg);
+    border-radius: 4px;
+}
+
+/* Search bar styles */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    position: relative;
+}
+
+.search-bar {
+    padding: 8px 12px;
+    padding-right: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    width: 200px;
+    transition: all 0.3s;
+}
+
+.search-bar:focus {
+    outline: none;
+    width: 300px;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.search-button {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.search-button:hover {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-bar:focus {
+        width: 100%;
+    }
+}
+
+/* Enhanced Responsive Styles */
+@media (max-width: 1200px) {
+    .main-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.8rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    .data-section {
+        padding: 20px !important;
+    }
+
+    .investment-summary,
+    .analysis-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 30px 15px !important;
+    }
+
+    .hero-section h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .hero-section p {
+        font-size: 0.9rem !important;
+    }
+
+    .summary-card .value {
+        font-size: 1.5rem !important;
+    }
+
+    .modal-content {
+        width: 95% !important;
+        margin: 10px auto !important;
+        padding: 20px !important;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better focus styles for accessibility */
+*:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Loading states */
+.loading-spinner {
+    border: 3px solid var(--border-color);
+    border-top: 3px solid var(--accent-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 
